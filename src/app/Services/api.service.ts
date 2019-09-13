@@ -20,12 +20,12 @@ export class ApiService {
    */
 
   getPokemon(offset: number,) {
-    return this.http.get(`${this.baseUrl}?offset={offset}`).toPromise()
+    return this.http.get(`${this.baseUrl}?offset={offset}&limit=151`).toPromise()
       .then(res => res.json().results)
       .then(items => items.map((item, index) => {
 
         const id: number = index + offset + 1
-        
+
         return {
           name: item.name,
           sprite: `${this.baseSpriteUrl}${id}.png`,

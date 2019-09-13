@@ -1,10 +1,27 @@
 
-<span *ngIf="error">
-  OUps ! Nous rencontrons un problème de serveur ! 
-</span>
+<div class="pokeList">
 
-<div class="pokeGallery" *ngFor="let list of pokemon">
-  <img (load)="list.imageLoaded = true" src={{list.sprite}}>
-  <p>#{{list.id}}</p>
-  <p>{{list.name}}</p>
+    <h2 class="pokeList__title">First Generation</h2>
+
+    <div>
+      <span *ngIf="pokeList__error">
+        OUps ! Nous rencontrons un problème de serveur ! 
+      </span>
+    </div>
+    
+    <div class="pokeList__grid">
+      <div class="pokeList__grid__gallery" *ngFor="let list of pokemon">
+        <div class="pokeList__grid__gallery__card">
+            <img (load)="list.imageLoaded = true" src={{list.sprite}}>
+            <p>#{{list.id}}</p>
+            <p>{{list.name}}</p>
+            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+            <br>
+            <i class="far fa-heart"></i>
+        </div>
+      </div>
+    </div>
+
 </div>
