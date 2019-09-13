@@ -1,0 +1,10 @@
+
+<span *ngIf="error">
+  OUps ! Nous rencontrons un problème de serveur ! 
+</span>
+
+<div class="pokeGallery" *ngFor="let list of pokemon">
+  <img (load)="list.imageLoaded = true" src={{list.sprite}}>
+  <p>#{{list.id}}</p>
+  <p>{{list.name}}</p>
+</div>
