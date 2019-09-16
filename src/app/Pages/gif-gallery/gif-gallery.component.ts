@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetGifsService } from '../../Services/get-gifs.service'
 
 @Component({
   selector: 'app-gif-gallery',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GifGalleryComponent implements OnInit {
 
-  constructor() { }
+  Datas;
+  Links;
+
+  constructor( private getGifService: GetGifsService) { }
 
   ngOnInit() {
+    this.fetchGif()
   }
 
+  fetchGif(){
+    this.getGifService.getGif().subscribe(data => {
+      this.Datas= data.json().data
+      console.log(this.Datas)
+      this.Links = this.Datas.id
+      console.log(this.Links)
+    })
+  }
 }

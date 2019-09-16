@@ -11,6 +11,7 @@ import { HttpModule } from '@angular/http';
 import { MyFavoritsComponent } from './Pages/my-favorits/my-favorits.component';
 import { SecondGenerationComponent } from './Pages/second-generation/second-generation.component';
 import { GifGalleryComponent } from './Pages/gif-gallery/gif-gallery.component';
+import { GetGifsService } from './Services/get-gifs.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,10 @@ import { GifGalleryComponent } from './Pages/gif-gallery/gif-gallery.component';
     HttpModule,
     BrowserAnimationsModule
   ],
-  providers: [ApiService],
+  providers: [
+    ApiService,
+    GetGifsService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

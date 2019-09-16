@@ -1,0 +1,13 @@
+@import '../../../styles.scss';
+
+.pokeList{
+  @include titleGallery;
+}
+
+.pokeList__grid {
+  @include pokeGallery;
+}
+
+.pokeList__grid__gallery__card {
+  @include pokeCard;
+}

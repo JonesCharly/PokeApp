@@ -1,1 +1,22 @@
-<p>second-generation works!</p>
+<div class="pokeList">
+    <img class="pokeList__icon" src="../../assets//icons8-pokéball-30.png"/>
+    <h2 class="pokeList__title">Second Generation</h2>
+
+    <div>
+      <span *ngIf="pokeList__error">
+        OUps ! Nous rencontrons un problème de serveur ! 
+      </span>
+    </div>
+
+    <div class="pokeList__grid">
+        <div class="pokeList__grid__gallery" *ngFor="let list of pokemon">
+          <div class="pokeList__grid__gallery__card">
+              <img (load)="list.imageLoaded = true" src={{list.sprite}}>
+              <p>#{{list.id}}</p>
+              <span>{{list.name}}</span>
+              <br>
+              <i class="far fa-heart"></i>
+          </div>
+        </div>
+      </div>
+</div>

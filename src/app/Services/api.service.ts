@@ -33,4 +33,20 @@ export class ApiService {
         }
       }))
   }
+
+  getSecondGene(offset: number){
+    offset= 151
+    return this.http.get(`${this.baseUrl}?offset=151&limit=100`).toPromise()
+      .then(res => res.json().results)
+      .then(items => items.map((item, index) => {
+
+        const id: number = index + offset + 1
+
+        return {
+          name: item.name,
+          sprite: `${this.baseSpriteUrl}${id}.png`,
+          id
+        }
+      }))
+  }
 }

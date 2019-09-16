@@ -14,3 +14,51 @@ $textGrey: #2f3948;
 // Fonts
 
 $nunito: 'Nunito', sans-serif;
+
+// Title 
+
+@mixin titleGallery {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  color: $textGrey;
+  text-align: center;
+  & img {
+    margin-top: 2%;
+    margin-bottom: -2%;
+  }
+}
+
+// Grid 
+
+@mixin pokeGallery {
+  display: grid;
+  justify-content: center;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(4, 20%);
+  grid-row-gap: 1em;
+  grid-column-gap: 1em
+}
+
+// Cards
+
+@mixin pokeCard {
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  color: $textGrey;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid $borderGrey;
+  font-family: $nunito;
+  font-weight: 800;
+  & p {
+    margin-top: -2%;
+    margin-bottom: 0%;
+  }
+  & span {
+    color: $textGrey;
+  }
+  & i {
+    color: $red;
+  }
+}
