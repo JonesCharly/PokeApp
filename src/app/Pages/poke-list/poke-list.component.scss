@@ -1,0 +1,40 @@
+@import '../../../styles.scss';
+
+.pokeList{
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  color: $textGrey;
+  text-align: center;
+}
+
+.pokeList__icon {
+  margin-top: 2%;
+  margin-bottom: -2%;
+}
+
+.pokeList__grid {
+  display: grid;
+  justify-content: center;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(4, 20%);
+  grid-row-gap: 1em;
+  grid-column-gap: 1em
+}
+
+.pokeList__grid__gallery__card {
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid $borderGrey;
+  font-family: $nunito;
+  font-weight: 800;
+  & p {
+    margin-top: -2%;
+    margin-bottom: 0%;
+  }
+  & span {
+    color: $textGrey;
+  }
+  & i {
+    color: $red;
+  }
+}

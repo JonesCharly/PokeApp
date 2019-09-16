@@ -1,6 +1,19 @@
 <div class="container">
-  <h2>Pokemon Full Master</h2>
-  <app-poke-list></app-poke-list>
+  <div class="container__navbar">
+      <i (click)="openMenu()" class="fas fa-bars"></i>
+      <img id="logo" src="../assets/500px-Pokémon_Masters_Logo.png">
+  </div>
+
+  <div class="container__navbar__menu" [@dropMenu]=currentState >
+    <ul >
+      <li [routerLink]="['/myFavorits']">mes favoris</li>
+      <li [routerLink]="['/firstGeneration']">First Generation</li>
+      <li [routerLink]="['/secondGeneration']">Second Generation</li>
+      <li [routerLink]="['/gifsPage']">gifs Pokemons</li>
+    </ul>
+  </div>
+
+  <!-- <app-poke-list></app-poke-list> -->
 </div>
 
 
