@@ -15,14 +15,20 @@ export class GifGalleryComponent implements OnInit {
 
   ngOnInit() {
     this.fetchGif()
+    this.listItem()
   }
 
   fetchGif(){
     this.getGifService.getGif().subscribe(data => {
       this.Datas= data.json().data
-      console.log(this.Datas)
-      this.Links = this.Datas.id
-      console.log(this.Links)
+
     })
   }
+  
+  listItem() {
+    for(let i = 1; i < this.Datas.length; i++){
+      console.log(this.Datas[i].id)
+    }
+  }
+
 }
