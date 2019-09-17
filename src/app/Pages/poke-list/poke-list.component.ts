@@ -16,28 +16,27 @@ export class PokeListComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
   ngOnInit(){
-    this.fetchPokemon()
+    // this.fetchPokemon()
   }
 
-  fetchPokemon() {
-    this.isLoading = true;
-    this.apiService.getPokemon(this.pokemon.length)
+  // fetchPokemon() {
+  //   this.isLoading = true;
+  //   // this.apiService.getPokemon(this.pokemon.length)
     
-    .then(pokemon => {
-      pokemon = pokemon.map(list => {
-        list.imageLoaded = false;
-        return list;
-      });
-      this.pokemon = this.pokemon.concat(pokemon);
-      this.isLoading = false;
-      this.error = false;
-    })
+  //   .then(pokemon => {
+  //     pokemon = pokemon.map(list => {
+  //       list.imageLoaded = false;
+  //       return list;
+  //     });
+  //     this.pokemon = this.pokemon.concat(pokemon);
+  //     this.isLoading = false;
+  //     this.error = false;
+  //   })
 
-    .catch(() => {
-      this.error = true;
-      this.isLoading = false;
-    });
+  //   .catch(() => {
+  //     this.error = true;
+  //     this.isLoading = false;
+  //   });
 
 
-  }
 }
