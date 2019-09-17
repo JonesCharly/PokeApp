@@ -1,0 +1,17 @@
+@import '../../../styles.scss';
+
+.gifGallery__header{
+  @include titleGallery ;
+}
+
+.gifGallery__grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, 20%);
+  grid-template-rows: none;
+  grid-gap: 10px;
+  & img {
+    width: 260px;
+    object-fit: cover;
+  }
+}

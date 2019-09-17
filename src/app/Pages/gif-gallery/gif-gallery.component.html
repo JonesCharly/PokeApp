@@ -1,1 +1,12 @@
-<p>gif-gallery works!</p>
+<div class="gifGallery">
+  <div class="gifGallery__header">
+      <img class="gifGallery__header__icon" src="../../assets//icons8-pokéball-30.png"/>
+      <h2 class="gifGallery__header__title">Gifs Collection</h2>
+  </div>
+
+  <div class="gifGallery__grid">
+    <div *ngFor="let data of Datas">
+      <img src={{data.images.downsized.url}}/>
+    </div>
+  </div>
+</div>
