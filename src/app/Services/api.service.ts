@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Pokemon } from '../Models/pokemon';
-// import 'rxjs/add/operator/toPromise';
 import { mergeMap, map, zip, concatMap, concatAll } from 'rxjs/operators'
 import { Http } from '@angular/http';
 import { forkJoin } from 'rxjs';
@@ -20,35 +19,24 @@ export class ApiService {
    * the Pokémon API.
    */
 
+  getFirstGene(){
+    return this.http.get(`${this.baseUrl}&limit=100`)
+    .pipe(
+      map(res => res.json().results)
+    )
+  }
+
   getSecondGene(offset: number) {
     offset = 151
-    return this.http.get(`${this.baseUrl}?offset=151&limit=100`)
-      // .toPromise()
-      // .then(res => res.json().results)
-      // .then(items => items.map((item, index) => {
-
-      //   const id: number = index + offset + 1;
-      //   // this.http.get(`${this.baseUrl}${id}`).subscribe(data => { this.Datas = data.json().types });
-
-      //   // this.http.get(`${this.baseUrl}${id}`).subscribe(data => {
-      //   //    data.json().types
-      //   //   // console.log(type)
-      //   // }
-      //   // )
-      //   return {
-      //     name: item.name,
-      //     sprite: `${this.baseSpriteUrl}${id}.png`,
-      //     type: this.Datas,
-      //     id,
-      //   }
-      // }))
+    return this.http.get(`${this.baseUrl}?offset=${offset}&limit=100`)
       .pipe(
         map(res => res.json().results),
         mergeMap((pokemonArray: any) =>
           forkJoin(
             pokemonArray
-              .map(pokemon => this.getPokemonByUrl(pokemon.url))
+              .map(pokemon => this.getPokemonByUrl(pokemon.url) )
           )
+          
           // map((pokemon: any) => {
           //   return this.http.get(pokemon.url)
           // }),

@@ -1,22 +1,17 @@
 <div class="pokeList">
-    <img class="pokeList__icon" src="../../assets//icons8-pokéball-30.png"/>
-    <h2 class="pokeList__title">Second Generation</h2>
+  <img class="pokeList__icon" src="../../assets//icons8-pokéball-30.png" />
+  <h2 class="pokeList__title">Second Generation</h2>
 
-    <div>
-      <span *ngIf="pokeList__error">
-        OUps ! Nous rencontrons un problème de serveur ! 
-      </span>
-    </div>
-
-    <div class="pokeList__grid">
-        <div class="pokeList__grid__gallery" *ngFor="let list of pokemon">
-          <div class="pokeList__grid__gallery__card">
-              <img (load)="list.imageLoaded = true" src={{list.sprite}}>
-              <p>#{{list.id}}</p>
-              <span>{{list.name}}</span>
-              <br>
-              <i class="far fa-heart"></i>
-          </div>
-        </div>
+  <div class="pokeList__grid">
+    <div class="pokeList__grid__gallery" *ngFor="let pokemon of pokemons">
+      <div class="pokeList__grid__gallery__card">
+        <img src={{pokemon.sprites.front_default}}>
+        <p>#{{pokemon.id}}</p>
+        <span>{{pokemon.name}}</span>
+        <p *ngFor="let type of pokemon.types">{{type.type.name}}</p>
+        <br>
+        <i class="far fa-heart"></i>
       </div>
+    </div>
+  </div>
 </div>

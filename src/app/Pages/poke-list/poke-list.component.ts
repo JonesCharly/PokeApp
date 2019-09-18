@@ -10,33 +10,18 @@ import { Pokemon } from '../../Models/pokemon'
 export class PokeListComponent implements OnInit {
 
   pokemon: Pokemon[] = [];
-  isLoading: boolean = false;
-  error: boolean = false;
+
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit(){
-    // this.fetchPokemon()
   }
 
-  // fetchPokemon() {
-  //   this.isLoading = true;
-  //   // this.apiService.getPokemon(this.pokemon.length)
-    
-  //   .then(pokemon => {
-  //     pokemon = pokemon.map(list => {
-  //       list.imageLoaded = false;
-  //       return list;
-  //     });
-  //     this.pokemon = this.pokemon.concat(pokemon);
-  //     this.isLoading = false;
-  //     this.error = false;
-  //   })
-
-  //   .catch(() => {
-  //     this.error = true;
-  //     this.isLoading = false;
-  //   });
-
+  fetchFirst() {
+    this.apiService.getFirstGene()
+      .subscribe((result: any) => {
+        this.pokemon = result;
+      });
+  }
 
 }
